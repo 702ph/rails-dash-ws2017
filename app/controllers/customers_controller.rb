@@ -7,10 +7,42 @@ class CustomersController < ApplicationController
     @customers = Customer.all
   end
 
+
   # GET /customers/1
   # GET /customers/1.json
   def show
+
+    #copied from orders_control#show 1/9 15:17
+    #line_items = @cutomer.order.line_items.includes(:pumpkin)
+    #@li_pumpkin_pairs = line_items.map { |li| [li, li.pumpkin] }
+
+    #@customer_item = order.line_items.includes(customer.name)
+    #@customer_item = 'abc'
+    #@customer_item02 = orders_url.test_variable
+
+    #---------------------------
+
+
+    if Order.find_by_id(params[:id]) != nil then
+    #@li_pumpkin_pairs =  { li{'no'}, 'items' }
+
+        order = Order.find(params[:id])
+
+        line_items = order.line_items.includes(:pumpkin)
+        @li_pumpkin_pairs = line_items.map { |li| [li, li.pumpkin] }
+
+  else
+
+    # http://uxmilk.jp/21695
+    #@li_pumpkin_pairs = { {"amout" => 000, "price" => 000}, {"species" => 000, "price" => 000} }
+
+    @li_pumpkin_pairs = nil
+
+    #else
+
   end
+  end
+
 
   # GET /customers/new
   def new
@@ -65,10 +97,14 @@ class CustomersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
       @customer = Customer.find(params[:id])
+      #@order = Order.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
       params.require(:customer).permit(:name)
+      #params.require(:order).permit(:customer_id)
     end
+
+
 end

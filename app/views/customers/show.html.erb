@@ -5,9 +5,39 @@
   <%= @customer.name %>
 </p>
 
-  <%= @customer.orders.each do |order| %>
-    <%= order.line_items %>
+
+
+
+<table>
+  <% if @li_pumpkin_pairs != nil  %>
+  <% @li_pumpkin_pairs.each do |line_item,pumpkin| %>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th >Pumpkin</th>
+      <th >Price per Pumpkin</th>
+      <th >Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+      <tr>
+        <td><%= line_item.amount %></td>
+        <td><%= pumpkin.species %></td>
+        <td><%= pumpkin.price %></td>
+        <td><%= line_item.price %></td>
+        <td></td>
+      </tr>
     <% end %>
+    <% else %>
+    <td><%= @customer.name %> has no orders yet</td>
+    <% end %>
+  </tbody>
+</table>
+
+
+
 
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>

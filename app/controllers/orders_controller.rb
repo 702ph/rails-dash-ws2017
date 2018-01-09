@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+
+  @test_variable_with_at_mark = "test variable with @ mark in in orders_controller.rb"
+  test_variable = "test variable in orders_controller.rb"
+
   # GET /orders
   # GET /orders.json
   def index
