@@ -106,5 +106,4 @@ class CustomersController < ApplicationController
       #params.require(:order).permit(:customer_id)
     end
 
-
 end

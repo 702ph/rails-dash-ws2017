@@ -5,18 +5,72 @@ class OrdersController < ApplicationController
   @test_variable_with_at_mark = "test variable with @ mark in in orders_controller.rb"
   test_variable = "test variable in orders_controller.rb"
 
+
   # GET /orders
   # GET /orders.json
   def index
     @orders = Order.all
+
+    #till here original
+    #----------------------------
+
+
+    #@test_variable01 = "test variable"
+
+if @order != nil then
+
+    line_items = @order.line_items.includes(:pumpkin)
+    li_pumpkin_pairs02 = line_items.map { |li| [li, li.pumpkin] }
+
+      li_pumpkin_pairs02.each do |line_item,pumpkin|
+      #@sum += line_item.price
+      @sum = "abc"
+    end
+end
+
   end
+
 
   # GET /orders/1
   # GET /orders/1.json
   def show
     line_items = @order.line_items.includes(:pumpkin)
     @li_pumpkin_pairs = line_items.map { |li| [li, li.pumpkin] }
+
+    #till here original
+    #-------------------
+
+
+    @li_pumpkin_pairs.each do |line_item,pumpkin|
+      if !line_item.price.nil?
+        @sum =+  line_item.price
+      end
+    end
+
+
+    @sum01 = 0
+    @li_pumpkin_pairs.each do |line_item,pumpkin|
+      if !line_item.price.nil?
+        @sum01 = @sum01 + 1
+      end
+    end
+
+
+#    @li_pumpkin_pairs.each do |line_item,pumpkin|
+#      @sum =+ line_item.amount * pumpkin.price
+#    end
+
+
+
+    #一応エラーはでない。正しくはない。
+    # @sum = line_items.values.inject(:+)
+
+    #こうすると、@li_pumpkin_pairsの中身が表示される
+    #@sum = @li_pumpkin_pairs
+
   end
+
+
 
   # GET /orders/new
   def new

@@ -9,19 +9,21 @@
 
 
 <table>
-  <% if @li_pumpkin_pairs != nil  %>
-  <% @li_pumpkin_pairs.each do |line_item,pumpkin| %>
+
   <thead>
     <tr>
+      <% if @li_pumpkin_pairs != nil  %>
       <th>Amount</th>
       <th >Pumpkin</th>
       <th >Price per Pumpkin</th>
       <th >Price</th>
     </tr>
+    <% end %>
   </thead>
 
   <tbody>
-
+    <% if @li_pumpkin_pairs != nil  %>
+    <% @li_pumpkin_pairs.each do |line_item,pumpkin| %>
       <tr>
         <td><%= line_item.amount %></td>
         <td><%= pumpkin.species %></td>
