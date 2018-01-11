@@ -14,7 +14,6 @@ class OrdersController < ApplicationController
     #till here original
     #----------------------------
 
-
     #@test_variable01 = "test variable"
 
 if @order != nil then
@@ -41,19 +40,21 @@ end
     #-------------------
 
 
-    @li_pumpkin_pairs.each do |line_item,pumpkin|
-      if !line_item.price.nil?
-        @sum =+  line_item.price
-      end
-    end
+#    @li_pumpkin_pairs.each do |line_item,pumpkin|
+#      if !line_item.price.nil?
+#        @sum =+  line_item.price
+#      end
+#    end
 
+#    @sum01 = 0
+#    @li_pumpkin_pairs.each do |line_item,pumpkin|
+#      if !line_item.price.nil?
+#        @sum01 = @sum01 + 1
+#      end
+#   end
 
-    @sum01 = 0
-    @li_pumpkin_pairs.each do |line_item,pumpkin|
-      if !line_item.price.nil?
-        @sum01 = @sum01 + 1
-      end
-    end
+      @order.each |o|
+      @sum =+ o.line_items.price
 
 
 #    @li_pumpkin_pairs.each do |line_item,pumpkin|

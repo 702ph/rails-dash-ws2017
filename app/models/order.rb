@@ -3,4 +3,6 @@ class Order < ApplicationRecord
   has_many :line_items
   has_many :pumpkins, through: :line_items
   # has_many(:pumpkins, {through: :line_items})
+
+
 end
