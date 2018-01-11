@@ -5,4 +5,12 @@ class Order < ApplicationRecord
   # has_many(:pumpkins, {through: :line_items})
 
 
+  def total
+    total = 0
+    line_items.each do |li|
+    total += li.price
+  end
+  return total
+end
+
 end

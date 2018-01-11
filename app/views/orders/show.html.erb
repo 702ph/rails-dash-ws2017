@@ -5,6 +5,7 @@ This is views/orders#show
 <p>
   <strong>Customer:</strong>
   <%= @order.customer.name %>
+
 </p>
 
 
@@ -32,7 +33,7 @@ This is views/orders#show
     <tr>
       <td></td>
       <td></td>
-      <td>sum: <%= @sum %></td>
+      <td>sum: <%= @order.total %></td>
       <td>repeat: <%= @sum01 %></td>
     </tr>
 

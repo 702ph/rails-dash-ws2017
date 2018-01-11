@@ -53,8 +53,6 @@ end
 #      end
 #   end
 
-      @order.each |o|
-      @sum =+ o.line_items.price
 
 
 #    @li_pumpkin_pairs.each do |line_item,pumpkin|
