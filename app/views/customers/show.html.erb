@@ -3,7 +3,7 @@
 <p>
   <strong>Name:</strong>
   <%= @customer.name %>
-  <%= @customer.total %>
+
 </p>
 
 
@@ -29,8 +29,10 @@
         <td><%= pumpkin.price %></td>
         <td><%= line_item.price %></td>
         <td></td>
+
       </tr>
     <% end %>
+      <td>Total Price:  <%= @customer.total %></td>
     <% else %>
     <td><%= @customer.name %> has no orders yet</td>
     <% end %>

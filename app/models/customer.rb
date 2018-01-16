@@ -3,10 +3,8 @@ class Customer < ApplicationRecord
 
   def total
     total =0
-    orders.each do |o|
-    total += o.total
-  end
-  return total
+    orders.each{ |o| total += o.total }
+    return total
   end
 
 end

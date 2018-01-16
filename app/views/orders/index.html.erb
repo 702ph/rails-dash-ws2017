@@ -20,12 +20,13 @@
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      <td>Total: <%= order.total %></td>
     <% end %>
 
     <tr>
       <td></td>
       <td></td>
-      <td>sum: <%= @sum %></td>
+
     </tr>
 
   </tbody>
